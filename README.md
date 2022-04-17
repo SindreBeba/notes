@@ -1,1 +1,1 @@
-# notes
+# Sindre's Notes
