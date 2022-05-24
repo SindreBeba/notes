@@ -1,9 +1,3 @@
----
-layout: default
-title: JavaScript
-parent: Web development
----
-
 # JavaScript
 
 ## Types

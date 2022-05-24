@@ -1,8 +1,3 @@
----
-layout: default
-title: CSS
-parent: Web development
----
 # CSS
 
 ## Selector specificity

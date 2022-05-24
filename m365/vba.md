@@ -1,9 +1,3 @@
----
-layout: default
-title: Excel VBA
-parent: Microsoft 365
----
-
 # Excel VBA
 
 ## Procedures

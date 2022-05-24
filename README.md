@@ -1,1 +1,3 @@
-# Sindre's Notes
+# Notes
+
+My notes. Written in markdown.

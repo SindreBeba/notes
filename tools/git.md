@@ -1,9 +1,3 @@
----
-layout: default
-title: Git
-parent: Tools
----
-
 # Git
 
 ## Command snippets
