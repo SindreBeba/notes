@@ -15,7 +15,7 @@ It's generally a good idea to style by `class` instead of `id`. It's also consid
 
 Currently, it's advisable to use `display: flex` instead of `display: float` which was used previously. There is also `display: grid`.
 
-[A Complete Guide to Flexbox (CSS-Tricks)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) is a good resource for Flexbox.
+> [A Complete Guide to Flexbox (CSS-Tricks)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) is a good resource for Flexbox.
 
 ## Reset and normalization
 
@@ -29,4 +29,4 @@ I usually have the following code in my projects to include the border and paddi
 }
 ```
 
-There is also the [CSS Reset by Eric Meyer](https://meyerweb.com/eric/tools/css/reset/) and [normalize.css](https://necolas.github.io/normalize.css/).
+> There is also the [CSS Reset by Eric Meyer](https://meyerweb.com/eric/tools/css/reset/) and [normalize.css](https://necolas.github.io/normalize.css/).
