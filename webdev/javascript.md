@@ -10,6 +10,13 @@ However, both declared variables with no assigned value and undeclared variables
 
 There is also a historical bug present in JavaScript where `typeof null` will return `object`.
 
+### Conversion tricks
+
+```js
+let myString = "2"
+let myNumer = +myString  // unary plus for number conversion
+```
+
 ## Truthy and falsy
 
 Because of JavaScript's type coercion, values will be coerced into booleans when encountered in certain contexts, e.g., an `if`-statement.
