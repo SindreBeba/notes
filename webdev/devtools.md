@@ -8,6 +8,6 @@
 
 **Prettier** - Code formatting for JavaScript. Also has a Visual Studio Code plugin.
 
-**Parcel** - Bundler for your projectes that require minimal configuration. Eases the work to make code more widely browser compatible.
+**Parcel** - Bundler for your projects that require minimal configuration. Eases the work to make code more widely browser compatible.
 
-**Babel** - Code transformer that, e.g., transforms JSX code into executable JavaScript code.
+**Babel** - Code transformer that, e.g., transforms JSX code into executable JavaScript code. It's built into Parcel.
