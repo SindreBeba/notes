@@ -7,6 +7,10 @@
 ```bash
 git checkout <branch>  # change branch
 
+git checkout -b <branch>                 # create new local branch
+git push origin <branch>                 # create remote branch
+git push --set-upstream origin <branch>  # "Connect" local and remote branches
+
 git branch      # see all local branches
 git branch -r   # see all remote branches
 git branch -a   # see all branches
