@@ -25,13 +25,13 @@ Function components are simpler to write and cover most use cases. Sometimes it 
 
 ```jsx
 const MyFunctionComponent = (props) => {
-    const headerText = "Hello world!";
-    
-    return (
-        <div>
-        	<h1>{headerText}</h1>
-        </div>
-    );
+  const headerText = "Hello world!";
+  
+  return (
+    <div>
+    	<h1>{headerText}</h1>
+    </div>
+  );
 };
 
 export default MyFunctionComponent;
@@ -55,7 +55,7 @@ const [name, setName] = useState("Ola Nordmann") // destructuring; argument is d
 setName("Sindre Beba"); // more commonly some user input
 
 return (
-    <h1>Hello {name}!</h1>
+  <h1>Hello {name}!</h1>
 );
 ```
 
@@ -63,12 +63,47 @@ return (
 
 ```jsx
 useEffect( () => {
-    /* code that will be called later outside the React render */
-}, [ name ] ); // will run whenever the name state is updated
+  /* code that will be called outside the render function, usually side-effect type actions */
+  return /* cleanup routine, runs at component unmount  */
+}, [ name ] ); // will run whenever the "name" state is updated
 ```
 
+- `useEffect` is how you recreate `componentDidMount`, `componentDidUpdate`, and `componentDidUnmount`.
 - Having an empty array as the second argument will cause `useEffect` to only be called once in the beginning.
 - Providing no second argument will cause `useEffect` to be called every time a state is updated.
+
+### useContext
+
+```jsx
+const UserContext = createContext([
+  {
+    userName: "DefaultUserName"
+  },
+  (obj) => obj
+]);
+
+const TopLevelComponent = () => {
+  const userState = useState({ userName: "sindre" });
+  
+  return (
+    <UserContext.Provider value={userState}>
+    	<LowerLevelComponent />
+    </UserContext.Provider>
+  );
+};
+
+const LowerLevelComponent = () => {
+  const [user, setUser] = userContext(UserContext);
+  
+  return (
+    <p>{`User is ${user.userName}`}</p>
+  );
+};
+```
+
+- `useContext` solves the "prop drilling" problem where you previously had to pass a value through several layers of components to use it at one of the lower levels.
+- It should be used sparingly as it can make it harder to debug your code since it makes it less obvious where values are updated. A rule of thumb is to only use it for application wide states such as a user context or enabling dark theme.
+- Context values can also be updated from the lower level component and the updated values will be available in the top level component.
 
 ### Other hooks
 
