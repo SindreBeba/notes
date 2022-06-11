@@ -8,7 +8,7 @@ There are three kinds of procedures: `sub`, `function`, and `property` procedure
 
 Generally, it is best to use `ByVal` for parameters. Use `ByRef` only when it is necessary to reassign the parameter for the caller as well. Always specify since `ByRef` is used by VBA as default.
 
-## Explicicity
+## Explicitness
 
 ### Option explicit
 Adding `Option explicit` to the top of the file will force the use of `Dim X As Y` instead of `Dim X` which will implicitly use the `Variant` data type.
@@ -40,7 +40,7 @@ Dim Values() As Variant
 Values = ReadRange.Value2
 Dim Row As Long
 For Row = LBound(Values, 1) To UBound(Values, 1)
-    <...>
+  ' ...
 Next Row
 ```
 
@@ -90,7 +90,7 @@ Dim Values() As Variant
 ReDim Values(1 To NumRows, 1 To NumCols) As Variant
 
 For Row = LBound(Values, 1) To UBound(Values, 1)
-    <...>
+  ' ...
 Next Row
 ```
 
@@ -98,11 +98,11 @@ Next Row
 
 ```vb
 If foo = 2 Then
-    bar = "Yes"
+  bar = "Yes"
 ElseIf foo = 1 Then
-    bar = "Maybe"
+  bar = "Maybe"
 Else
-    bar = "No"
+  bar = "No"
 End If
 ```
 
@@ -112,17 +112,28 @@ End If
 ' For Next Loop
 Dim RowNr As Integer
 For RowNr = 1 to 10
-    If Cells(RowNr, 1).Value <> "" Then
-        Exit For ' Breaks out of the loop entirely
-    End If
-    Cells(RowNr, 1).Value = "foo"
+  If Cells(RowNr, 1).Value <> "" Then
+    Exit For ' Breaks out of the loop entirely
+  End If
+  Cells(RowNr, 1).Value = "foo"
 Next RowNr ' Increments and iterates
 
 ' For Each Next Loop
 Dim CurrentSheet As Worksheet
 For Each CurrentSheet In ThisWorkbook.Worksheets
-    MsgBox "Found worksheet: " & CurrentSheet.Name
+  MsgBox "Found worksheet: " & CurrentSheet.Name
 Next CurrentSheet
+```
+
+### Breaking out of For Loops
+
+```vb
+Dim CurrentObject As MyObject
+For Each CurrentObject In MyList: Do
+  ' ...
+  If Not CurrentObject.IsValid Then Exit Do
+  ' ...
+Loop While False: Next i
 ```
 
 ### Do Loops
@@ -133,8 +144,8 @@ Dim RowNr As Integer
 RowNr = 5
 
 Do While Cells(RowNr, 1).Value <> "" ' Not empty
-    Cells(RowNr, 3).Value = Cells(RowNr, 2) + 30
-    RowNr = RowNr + 1
+  Cells(RowNr, 3).Value = Cells(RowNr, 2) + 30
+  RowNr = RowNr + 1
 Loop
 ```
 
@@ -142,12 +153,12 @@ Loop
 
 ```vb
 Select Case Foo
-    Case 0
-        MsgBox "Foo is 0"
-    Case 1
-        MsgBox "Foo is 1"
-    Case Else
-        MsgBox "Foo is something else"
+  Case 0
+    MsgBox "Foo is 0"
+  Case 1
+    MsgBox "Foo is 1"
+  Case Else
+    MsgBox "Foo is something else"
 End Select
 ```
 
@@ -155,8 +166,8 @@ End Select
 
 ```vb
 With CellRange.Font
-    .Name = "Arial"
-    .Size = 14
-    .Bold = True
+  .Name = "Arial"
+  .Size = 14
+  .Bold = True
 End With
 ```
