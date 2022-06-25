@@ -105,12 +105,48 @@ const LowerLevelComponent = () => {
 - It should be used sparingly as it can make it harder to debug your code since it makes it less obvious where values are updated. A rule of thumb is to only use it for application wide states such as a user context or enabling dark theme.
 - Context values can also be updated from the lower level component and the updated values will be available in the top level component.
 
+### useRef
+
+```jsx
+const counterRef = useRef(0);
+// ...
+console.log(counterRef.current)
+
+const headerElement = useRef();
+// ...
+<h1 ref={ (element) => headerElement.current = element }
+```
+
+- `useRef` is useful when you need the most current value across renders, or if you need the same value across components.
+
+### useReducer
+
+```jsx
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+    	return Object.assign({}, state, { value: value + 1});
+    case "DECREMENT":
+    	return Object.assign({}, state, { value: value - 1});
+    default:
+      return state;
+  }
+}
+// ...
+const [{ value }, dispatch] = useReducer(reducer, { value: 0 });
+// ...
+<button onClick={ () => dispatch({ type: "INCREMENT" }) }>+</button>
+<button onClick={ () => dispatch({ type: "DECREMENT" }) }>-</button>
+```
+
+- Provides Redux-style reducers. A reducer takes a state and an action and returns an updated state.
+- `useReducer` makes the code testable using unit tests since the same arguments will always produce the same result.
+
 ### Other hooks
 
-There are many more hooks, and you can even create your own custom hooks. Some of the other hooks are:
+There are more hooks in React, but they are rarely used. It's also possible to create your own custom hooks.
 
-- `useContext`
-- `useRef`
+Some of the other hooks are `useMemo`, `useCallback`, `useLayoutEffect`, `useImperativeHandle`, `useDebugValue`, and `useId`.
 
 ## React Router
 
