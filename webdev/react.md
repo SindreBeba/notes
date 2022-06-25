@@ -133,3 +133,123 @@ Use to create a single page application (SAP). Wraps everything inside a `<Brows
 **Remix** - higher level framework built on top of React.
 
 **Strict mode** - the `<StrictMode>` tag can be used to future proof the code. By wrapping your code inside the tag, React will give you warnings about soon to be deprecated code.
+
+## React Quick Start
+
+Step 1: Create a new directory and initialize a Git repo
+
+```sh
+mkdir MyProject
+cd MyProject
+git init
+```
+
+Step 1.1: Set up a new npm project
+
+```sh
+npm init -y
+```
+
+Step 1.2: Add `.gitignore`
+
+```
+node_modules
+.parcel-cache/
+dist/
+.env
+.DS_Store
+coverage/
+.vscode/
+```
+
+Step 2: Set up Prettier
+
+```sh
+npm install --global prettier # if not already installed
+npm install -D prettier
+echo "{}" > .prettierrc
+```
+
+Step 2.1: Create a file `.prettierrc`
+
+```json
+{}
+```
+
+Step 2.2: Add script to `package.json`
+
+```json
+"format": "prettier --write \"src/**/*.{js,jsx}\""
+```
+
+Step 3: Install ESLint
+
+```sh
+npm install -D eslint eslint-config-prettier
+```
+
+Step 3.1: Create a file `.eslintrc.json`
+
+```json
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  }
+}
+```
+
+Step 3.2: Add script to `package.json`
+
+```json
+"lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+```
+
+Step 4: Install Parcel
+
+```sh
+npm install -D parcel
+```
+
+Step 4.1: Add script to `package.json`
+
+```json
+"dev": "parcel src/index.html"
+```
+
+Step 5: Install React
+
+```sh
+npm install react react-dom
+```
+
+Step 6: Install TypeScript
+
+```sh
+npm install -D typescript
+npx tsc --init
+```
+
+Step 6.1: Update `tsconfig.json`
+
+```json
+"target": "es2021",
+"jsx": "preserve",
+```
+
+Step 6.2: Install types
+
+```sh
+npm install -D @types/react @types/react-dom
+```
+
